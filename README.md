@@ -7,18 +7,15 @@ Based off of:
 https://github.com/justinjohnso/giftcards_galore
 https://github.com/ageoldpun/amazon_gifts 
 
----
 
-###Dependencies:
+## Dependencies:
 * VS 2017/.NET 4.6
 * Nuget packages:
   * Selenium.Support
   * Selenium.WebDriver
   * Selenium.WebDriver.ChromeDriver
 
----
-
-###Usage:
+## Usage:
 
 Open the C# project/sln and replace the following variables:
 
