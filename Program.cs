@@ -72,33 +72,4 @@ namespace AmazonGiftCardsBuy
             driver.Quit();
         }
     }
-
-    public static class WebDriverExtensions
-    {
-        // http://stackoverflow.com/questions/6992993/selenium-c-sharp-webdriver-wait-until-element-is-present
-        public static IWebElement FindElement(this IWebDriver driver, By by, int timeoutInSeconds)
-        {
-            if (timeoutInSeconds > 0)
-            {
-                var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(timeoutInSeconds));
-                return wait.Until(drv => drv.FindElement(by));
-            }
-            return driver.FindElement(by);
-        }
-
-        public static void WaitForElementPresentAndEnabled(this IWebDriver driver, By locator, int secondsToWait = 30)
-        {
-            new WebDriverWait(driver, new TimeSpan(0, 0, secondsToWait))
-               .Until(d => d.FindElement(locator).Enabled
-                   && d.FindElement(locator).Displayed
-                   && d.FindElement(locator).GetAttribute("aria-disabled") == null
-               );
-        }
-
-        public static void WaitForTitle(this IWebDriver driver, string title, int secondsToWait = 30)
-        {
-            new WebDriverWait(driver, new TimeSpan(0, 0, secondsToWait))
-                .Until(d => d.Title == title);
-        }
-    }
 }
