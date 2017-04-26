@@ -1,5 +1,4 @@
 # amazon-giftcards
-Automate buying Amazon Gift Cards
 
 C# program to auto-buy Amazon gift cards
 
