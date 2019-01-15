@@ -34,8 +34,12 @@ namespace AmazonGiftCardsBuy
             driver.FindElementById("ap_password").SendKeys(AMAZON_PASSWORD);
             driver.FindElementById("signInSubmit").Click();
             
-            //Console.WriteLine("Signed in successfully! Waiting for 60 seconds for allowing to allow user input for 2FA");
-            //Thread.Sleep(60000);
+            Console.WriteLine("Signed in successfully! Optionally waiting for 60 seconds for allowing to allow user input for 2FA");
+
+            // The following is to accomodate manual input for 2FA
+            wait.Timeout = TimeSpan.FromMinutes(1);
+            wait.Until(d => d.Title == "Reload Your Balance");
+            wait.Timeout = TimeSpan.FromSeconds(10);
 
             // Loop and buy gift cards
             for (int i = 0; i < NUMBER_OF_RELOADS; i++)
